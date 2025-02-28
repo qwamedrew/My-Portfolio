@@ -7,9 +7,12 @@
   <title>Profile</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
+  <script src="./app.js" defer></script>
 </head>
 
-<body>
+<body class="bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300">
   <section class="bg-gray-200 h-screen">
     <div class="mx-auto bg-white w-[90%] h-screen">
       <div class="flex justify-center items-center gap-x-[15rem] h-[7rem]">
@@ -20,7 +23,9 @@
           <a href="#" class="px-4 py-2 rounded-lg hover:bg-gray-200">Contact</a>
         </nav>
         <div>
-          <a href="#" class="px-4 py-2 rounded-lg hover:bg-gray-200">day&night</a>
+          <button id="darkModeToggle" class="px-4 py-2 bg-gray-800 text-white rounded-md dark:bg-gray-200 dark:text-black">
+            Toggle Dark Mode
+        </button>       
         </div>
       </div>
 
@@ -60,70 +65,94 @@
       <img src="image4.jpg" class="w-72 h-96 rounded-2xl shadow-2xl -rotate-2" />
       <img src="image5.jpg" class="w-72 h-96 rounded-2xl shadow-2xl rotate-2" />
     </div>
-       
+
   </section>
-  <section class="bg-gray-200 h-screen">
+<section class="bg-gray-200 h-screen">
     <div class="mx-auto bg-white w-[90%] h-screen flex">
-    <div class="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
         <!-- Left Side: Articles -->
         <div class="lg:col-span-2 space-y-8">
-            <div>
-                <p class="text-gray-500 text-sm">September 5, 2022</p>
-                <h2 class="text-xl font-bold">Crafting a design system for a multiplanetary future</h2>
-                <p class="text-gray-600 mt-2">Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system.</p>
-                <a href="#" class="text-teal-500 font-semibold mt-2 inline-block">Read article &gt;</a>
-            </div>
-            <div>
-                <p class="text-gray-500 text-sm">September 2, 2022</p>
-                <h2 class="text-xl font-bold">Introducing Animaginary: High performance web animations</h2>
-                <p class="text-gray-600 mt-2">When you're building a website for a company as ambitious as Planetaria, you need to make an impression. I wanted people to visit our website and see animations that looked more realistic than reality itself.</p>
-                <a href="#" class="text-teal-500 font-semibold mt-2 inline-block">Read article &gt;</a>
-            </div>
-            <div>
-                <p class="text-gray-500 text-sm">July 14, 2022</p>
-                <h2 class="text-xl font-bold">Rewriting the cosmOS kernel in Rust</h2>
-                <p class="text-gray-600 mt-2">When we released the first version of cosmOS last year, it was written in Go. Go is a wonderful programming language, but it’s been a while since I've seen an article on the front page of Hacker News about rewriting some important tool in Go.</p>
-                <a href="#" class="text-teal-500 font-semibold mt-2 inline-block">Read article &gt;</a>
-            </div>
+          <div>
+            <p class="text-gray-500 text-sm">September 5, 2024</p>
+            <h2 class="text-xl font-bold">Transforming the Future of Finance</h2>
+            <p class="text-gray-600 mt-2">The financial technology (fintech) industry has revolutionized the way individuals and businesses interact with financial services. With advancements in digital banking, blockchain, artificial intelligence, and mobile payments, fintech is reshaping the global economy. This article explores the evolution of fintech, its key innovations, and its impact on traditional financial institutions.</p>
+            <a href="#" class="text-teal-500 font-semibold mt-2 inline-block">Read article &gt;</a>
+          </div>
+          <div>
+            <p class="text-gray-500 text-sm">September 2, 2023</p>
+            <h2 class="text-xl font-bold">The Evolution of Fintech</h2>
+            <p class="text-gray-600 mt-2">Over the past decade, financial technology (fintech) has revolutionized the way people interact with money. From mobile banking to blockchain innovations, fintech has reshaped traditional financial services, making them more accessible, efficient, and secure. As technology continues to advance, fintech's influence on global finance will only deepen.</p>
+            <a href="#" class="text-teal-500 font-semibold mt-2 inline-block">Read article &gt;</a>
+          </div>
+          <div>
+            <p class="text-gray-500 text-sm">July 14, 2022</p>
+            <h2 class="text-xl font-bold">The Rise of Fintech</h2>
+            <p class="text-gray-600 mt-2">Fintech emerged as a response to inefficiencies in traditional banking and financial institutions. Initially, it focused on streamlining payment processing and online transactions. However, the rapid growth of smartphones and internet connectivity led to an explosion of fintech applications, from peer-to-peer (P2P) lending platforms to robo-advisors and decentralized finance (DeFi) solutions..</p>
+            <a href="#" class="text-teal-500 font-semibold mt-2 inline-block">Read article &gt;</a>
+          </div>
         </div>
-        
+
         <!-- Right Side: Sidebar -->
         <div class="space-y-8">
-            <div class="p-6 bg-white shadow-lg rounded-xl">
-                <h3 class="font-semibold text-lg">Stay up to date</h3>
-                <p class="text-gray-600 mt-2">Get notified when I publish something new, and unsubscribe at any time.</p>
-                <div class="mt-4 flex">
-                    <input type="email" placeholder="Email address" class="flex-1 px-4 py-2 border rounded-l-lg focus:outline-none">
-                    <button class="px-4 py-2 bg-black text-white rounded-r-lg">Join</button>
-                </div>
+          <div class="p-6 bg-white shadow-lg rounded-xl">
+            <h3 class="font-semibold text-lg">Stay up to date</h3>
+            <p class="text-gray-600 mt-2">Get notified when I publish something new, and unsubscribe at any time.</p>
+            <div class="mt-4 flex">
+              <input type="email" placeholder="Email address"
+                class="flex-1 px-4 py-2 border rounded-l-lg focus:outline-none">
+              <button class="px-4 py-2 bg-black text-white rounded-r-lg">Join</button>
             </div>
-            <div class="p-6 bg-white shadow-lg rounded-xl">
-                <h3 class="font-semibold text-lg">Work</h3>
-                <ul class="mt-4 space-y-4">
-                    <li>
-                        <p class="font-semibold">Planetaria</p>
-                        <p class="text-sm text-gray-500">CEO | 2019 — Present</p>
-                    </li>
-                    <li>
-                        <p class="font-semibold">Airbnb</p>
-                        <p class="text-sm text-gray-500">Product Designer | 2014 — 2019</p>
-                    </li>
-                    <li>
-                        <p class="font-semibold">Facebook</p>
-                        <p class="text-sm text-gray-500">iOS Software Engineer | 2011 — 2014</p>
-                    </li>
-                    <li>
-                      <img src="./img/adb.png" alt="">
-                        <p class="font-semibold">Agricultural Development Bank</p>
-                        <p class="text-sm text-gray-500">Shift Supervisor | 2008 — 2011</p>
-                    </li>
-                </ul>
-                <a href="./docs/AMANKWA ANDREW BRIGHT KWAME.pdf" download>
-                  <button class="mt-4 w-full bg-gray-400 py-2 rounded-lg">Download CV &darr;</button>
-                </a>
-            </div>
+          </div>
+          <div class="p-6 bg-white shadow-lg rounded-xl">
+            <h3 class="font-semibold text-lg">Work</h3>
+            <ul class="mt-4 space-y-4">
+              <li>
+                <img src="./img/eeb.png" alt="" class="h-10">
+                <p class="font-semibold">Euro Exim Bank</p>
+                <p class="text-sm text-gray-500">Trade Executive | 2023 — Present</p>
+              </li>
+              
+              <li>
+                <img src="./img/deomeg.png" alt="" class="h-10">
+                <p class="font-semibold">Deomeg Debt Recovry Ltd</p>
+                <p class="text-sm text-gray-500">Head of Recovery | 2023 — 2023</p>
+              </li>
+
+              <li>
+                <p class="font-semibold">Casa de Banopa</p>
+                <p class="text-sm text-gray-500">Manager | 2020 — 2022</p>
+              </li>
+
+              <li>
+                <img src="./img/adb.png" alt="" class="h-10">
+                <p class="font-semibold">Agricultural Development Bank</p>
+                <p class="text-sm text-gray-500">Recovery Officer | 2018 — 2020</p>
+              </li>
+            </ul>
+            <a href="./docs/AMANKWA ANDREW BRIGHT KWAME.pdf" download>
+              <button class="mt-4 w-full bg-gray-400 py-2 rounded-lg">Download CV &darr;</button>
+            </a>
+          </div>
         </div>
+      </div>
+</section>
+<section id="skills" class=" py-12">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-4xl font-semibold text-black mb-6">My Skills</h2>
+
+    <!-- Swiper Container -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://www.svgrepo.com/show/452228/html-5.svg" alt="HTML" class="w-14 h-14 mx-auto"></div>
+        <div class="swiper-slide"><img src="https://www.svgrepo.com/show/452185/css-3.svg" alt="CSS" class="w-14 h-14 mx-auto"></div>
+        <div class="swiper-slide"><img src="https://www.svgrepo.com/show/353925/javascript.svg" alt="JavaScript" class="w-14 h-14 mx-auto"></div>
+        <div class="swiper-slide"><img src="https://www.svgrepo.com/show/452211/github.svg" alt="GitHub" class="w-14 h-14 mx-auto"></div>
+        <div class="swiper-slide"><img src="https://www.svgrepo.com/show/448299/aws.svg" alt="AWS" class="w-14 h-14 mx-auto"></div>
+        <div class="swiper-slide"><img src="https://www.svgrepo.com/show/452210/git.svg" alt="Git" class="w-14 h-14 mx-auto"></div>
+      </div>
     </div>
+  </div>
+</section>
 </body>
 
 </html>
