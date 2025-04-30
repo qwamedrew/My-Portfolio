@@ -6,153 +6,262 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profile</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ✅ Then configure -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    };
+  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
   <script src="./app.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
-<body class="bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300">
-  <section class="bg-gray-200 h-screen">
-    <div class="mx-auto bg-white w-[90%] h-screen">
-      <div class="flex justify-center items-center gap-x-[15rem] h-[7rem]">
-        <nav class="flex justify-center space-x-4 bg-white w-[30%] border border2-gray-600 rounded-3xl shadow-md">
-          <a href="#" class="px-4 py-2 rounded-lg hover:bg-gray-200">Home</a>
-          <a href="#" class="px-4 py-2 rounded-lg hover:bg-gray-200">About</a>
-          <a href="#" class="px-4 py-2 rounded-lg hover:bg-gray-200">Project</a>
-          <a href="#" class="px-4 py-2 rounded-lg hover:bg-gray-200">Contact</a>
-        </nav>
-        <div>
-          <button id="darkModeToggle" class="px-4 py-2 bg-gray-800 text-white rounded-md dark:bg-gray-200 dark:text-black">
-            Toggle Dark Mode
-        </button>       
+<body id="page"
+  class="bg-white text-black transition-colors duration-300 font-sans dark:bg-gray-900 dark:text-white pt-16">
+  <!-- Fixed Navigation -->
+  <header class="fixed top-0 left-0 right-0 bg-white dark:bg-gray-900 shadow-md z-50 transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <!-- Brand or Toggle Button for Mobile -->
+        <div class="md:hidden flex items-center space-x-2">
+          <button id="menu-toggle" class="text-2xl focus:outline-none">☰</button>
         </div>
-      </div>
 
-      <div class="flex space-x-32">
-        <div class="w-1/2 ml-[4rem]">
-          <h1 class="text-2xl font-bold mt-10">
-            Junior Web Developer, Financial Analyst, Sustainable Finance
-            Analyst, Real Estate Management, Risk Manager, Project Finance
-            Manager, Credit Manager
+        <!-- Navigation Items Centered -->
+        <div class="flex-1 flex justify-center">
+          <nav id="menu"
+            class="hidden md:flex flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0 px-6 py-2 bg-white dark:bg-gray-800 shadow-md rounded-full md:rounded-full text-center md:text-left">
+            <a href="#home" class="text-sm font-medium hover:text-teal-500 transition-colors">Home</a>
+            <a href="#gallery" class="text-sm font-medium hover:text-teal-500 transition-colors">Gallery</a>
+            <a href="#projects" class="text-sm font-medium hover:text-teal-500 transition-colors">Projects</a>
+            <a href="#skills" class="text-sm font-medium hover:text-teal-500 transition-colors">Skills</a>
+          </nav>
+        </div>
+
+        <!-- Dark Mode Button -->
+        <button id="darkModeToggle"
+          class="ml-4 w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-white/10 shadow-md text-xl">
+          <span id="darkModeIcon">☀️</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden px-4 py-2 bg-white dark:bg-gray-800 shadow-md">
+      <nav class="flex flex-col space-y-2">
+        <a href="#home" class="text-sm font-medium hover:text-teal-500 py-2 transition-colors">Home</a>
+        <a href="#gallery" class="text-sm font-medium hover:text-teal-500 py-2 transition-colors">Gallery</a>
+        <a href="#projects" class="text-sm font-medium hover:text-teal-500 py-2 transition-colors">Projects</a>
+        <a href="#skills" class="text-sm font-medium hover:text-teal-500 py-2 transition-colors">Skills</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-6">
+    <!-- Hero Section -->
+    <section id="home" class="pt-4 pb-10">
+      <div class="flex flex-col lg:flex-row items-start gap-10">
+        <div class="lg:w-2/3">
+          <h1 class="text-2xl font-bold">
+            Junior Web Developer, Financial Analyst, Sustainable Finance Analyst, Real Estate Management, Risk Manager,
+            Project Finance Manager, Credit Manager
           </h1>
-          <p class="text-gray-700 mt-10 text-xl">
-            Andrew is a skilled financial analyst with a keen ability to
-            interpret market trends and financial data to drive strategic
-            investment decisions. With experience as a real estate manager,
-            they successfully oversee property portfolios, ensuring
-            profitability and efficient property management. Additionally,
-            Andrew is a junior web developer, passionate about coding and
-            continuously honing their skills to contribute to web development
-            projects and enhance user experience.
+          <p class="text-gray-700 dark:text-gray-300 mt-6 text-lg">
+            Andrew is a skilled financial analyst with a keen ability to interpret market trends and financial data to
+            drive strategic investment decisions. With experience as a real estate manager, they successfully oversee
+            property portfolios, ensuring profitability and efficient property management. Additionally, Andrew is a
+            junior web developer, passionate about coding and continuously honing their skills to contribute to web
+            development projects and enhance user experience.
           </p>
-          <div class="flex space-x-4 mt-10">
+          <div class="flex space-x-4 mt-6">
             <i class="fa fa-twitter text-xl hover:text-gray-500" aria-hidden="true"></i>
             <i class="fa fa-instagram text-xl hover:text-gray-500" aria-hidden="true"></i>
             <i class="fa fa-github text-xl hover:text-gray-500" aria-hidden="true"></i>
             <i class="fa fa-linkedin-square text-xl hover:text-gray-500" aria-hidden="true"></i>
           </div>
         </div>
-        <img src="./img/IMGL6234.jpg" class="w-[20rem] border border2-gray-600 rounded-3xl shadow-md" />
-      </div>
-    </div>
-  </section>
-  <section>
-    <div class="flex gap-8 justify-center p-10">
-      <img src="./img/images.jpg" class="w-72 h-96 rounded-2xl shadow-2xl rotate-2" />
-      <img src="./img/Screenshot (5).png" class="w-72 h-96 rounded-2xl shadow-2xl -rotate-3" />
-      <img src="./img/bsb.jpg" class="w-72 h-96 rounded-2xl shadow-2xl rotate-3" />
-      <img src="image4.jpg" class="w-72 h-96 rounded-2xl shadow-2xl -rotate-2" />
-      <img src="image5.jpg" class="w-72 h-96 rounded-2xl shadow-2xl rotate-2" />
-    </div>
-
-  </section>
-<section class="bg-gray-200 h-screen">
-    <div class="mx-auto bg-white w-[90%] h-screen flex">
-      <div class="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <!-- Left Side: Articles -->
-        <div class="lg:col-span-2 space-y-8">
-          <div>
-            <p class="text-gray-500 text-sm">September 5, 2024</p>
-            <h2 class="text-xl font-bold">Transforming the Future of Finance</h2>
-            <p class="text-gray-600 mt-2">The financial technology (fintech) industry has revolutionized the way individuals and businesses interact with financial services. With advancements in digital banking, blockchain, artificial intelligence, and mobile payments, fintech is reshaping the global economy. This article explores the evolution of fintech, its key innovations, and its impact on traditional financial institutions.</p>
-            <a href="#" class="text-teal-500 font-semibold mt-2 inline-block">Read article &gt;</a>
-          </div>
-          <div>
-            <p class="text-gray-500 text-sm">September 2, 2023</p>
-            <h2 class="text-xl font-bold">The Evolution of Fintech</h2>
-            <p class="text-gray-600 mt-2">Over the past decade, financial technology (fintech) has revolutionized the way people interact with money. From mobile banking to blockchain innovations, fintech has reshaped traditional financial services, making them more accessible, efficient, and secure. As technology continues to advance, fintech's influence on global finance will only deepen.</p>
-            <a href="#" class="text-teal-500 font-semibold mt-2 inline-block">Read article &gt;</a>
-          </div>
-          <div>
-            <p class="text-gray-500 text-sm">July 14, 2022</p>
-            <h2 class="text-xl font-bold">The Rise of Fintech</h2>
-            <p class="text-gray-600 mt-2">Fintech emerged as a response to inefficiencies in traditional banking and financial institutions. Initially, it focused on streamlining payment processing and online transactions. However, the rapid growth of smartphones and internet connectivity led to an explosion of fintech applications, from peer-to-peer (P2P) lending platforms to robo-advisors and decentralized finance (DeFi) solutions..</p>
-            <a href="#" class="text-teal-500 font-semibold mt-2 inline-block">Read article &gt;</a>
-          </div>
+        <div class="lg:w-1/3">
+          <img src="./img/IMGL6234.jpg" class="w-full max-w-xs mx-auto lg:mx-0 border rounded-3xl shadow-md"
+            alt="Profile Picture" />
         </div>
+      </div>
+    </section>
 
-        <!-- Right Side: Sidebar -->
-        <div class="space-y-8">
-          <div class="p-6 bg-white shadow-lg rounded-xl">
-            <h3 class="font-semibold text-lg">Stay up to date</h3>
-            <p class="text-gray-600 mt-2">Get notified when I publish something new, and unsubscribe at any time.</p>
-            <div class="mt-4 flex">
-              <input type="email" placeholder="Email address"
-                class="flex-1 px-4 py-2 border rounded-l-lg focus:outline-none">
-              <button class="px-4 py-2 bg-black text-white rounded-r-lg">Join</button>
+    <!-- Image Gallery -->
+    <section id="gallery" class="py-12 scroll-mt-20">
+      <h2 class="text-4xl font-bold mb-6 text-center">Snapshots of Impact</h2>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+        <div class="relative rounded-xl overflow-hidden transform rotate-2 group">
+          <img src="./img/images.jpg" class="object-cover w-full h-60" />
+          <div
+            class="absolute inset-0 bg-black/60 text-white text-sm p-2 opacity-0 group-hover:opacity-100 transition-opacity flex items-center">
+            Fetching water from the well</div>
+        </div>
+        <div class="relative rounded-xl overflow-hidden transform -rotate-2 group">
+          <img src="./img/Screenshot (5).png" class="object-cover w-full h-60" />
+          <div
+            class="absolute inset-0 bg-black/60 text-white text-sm p-2 opacity-0 group-hover:opacity-100 transition-opacity flex items-center">
+            Luxury watch catalog</div>
+        </div>
+        <div class="relative rounded-xl overflow-hidden transform rotate-3 group">
+          <img src="./img/bsb.jpg" class="object-cover w-full h-60" />
+          <div
+            class="absolute inset-0 bg-black/60 text-white text-sm p-2 opacity-0 group-hover:opacity-100 transition-opacity flex items-center">
+            A vibrant construction scene</div>
+        </div>
+        <div class="relative rounded-xl overflow-hidden transform -rotate-3 group">
+          <img src="https://cdn.pixabay.com/photo/2024/01/10/16/12/woman-8499902_640.jpg"
+            class="object-cover w-full h-60" />
+          <div
+            class="absolute inset-0 bg-black/60 text-white text-sm p-2 opacity-0 group-hover:opacity-100 transition-opacity flex items-center">
+            Emerging technology workshop</div>
+        </div>
+        <div class="relative rounded-xl overflow-hidden transform rotate-1 group">
+          <img src="https://cdn.pixabay.com/photo/2022/10/04/21/25/xr-7499160_640.jpg"
+            class="object-cover w-full h-60" />
+          <div
+            class="absolute inset-0 bg-black/60 text-white text-sm p-2 opacity-0 group-hover:opacity-100 transition-opacity flex items-center">
+            Environmental awareness rally</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Grid -->
+    <div class="grid md:grid-cols-3 gap-8 mb-16">
+      <!-- Projects Column -->
+      <div class="md:col-span-2">
+        <section id="projects" class="scroll-mt-20">
+          <h2 class="text-3xl font-bold mb-6 text-center">Featured Projects</h2>
+          <div class="grid gap-6 sm:grid-cols-2">
+            <!-- Project 1 -->
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+              <img src="https://cdn.pixabay.com/photo/2020/03/02/19/27/banking-4896665_640.jpg"
+                alt="Expense Tracker App" class="w-full h-48 object-cover">
+              <div class="p-4">
+                <h3 class="text-lg font-bold mb-2">Expense Tracker App</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">A MERN-based app to track daily expenses, featuring
+                  secure authentication, file uploads, and monthly analytics.</p>
+              </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+              <img src="https://cdn.pixabay.com/photo/2020/03/02/19/27/banking-4896665_640.jpg"
+                alt="Real Estate Dashboard" class="w-full h-48 object-cover">
+              <div class="p-4">
+                <h3 class="text-lg font-bold mb-2">Real Estate Dashboard</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Interactive dashboard integrating Google Sheets API
+                  to
+                  visualize property data, sales trends, and performance insights.</p>
+              </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+              <img src="https://cdn.pixabay.com/photo/2020/03/02/19/27/banking-4896665_640.jpg" alt="Portfolio Website"
+                class="w-full h-48 object-cover">
+              <div class="p-4">
+                <h3 class="text-lg font-bold mb-2">Portfolio Website</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">This responsive portfolio site showcases projects,
+                  skills, and professional background with dark mode and animations.</p>
+              </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+              <img src="https://cdn.pixabay.com/photo/2020/03/02/19/27/banking-4896665_640.jpg" alt="Portfolio Website"
+                class="w-full h-48 object-cover">
+              <div class="p-4">
+                <h3 class="text-lg font-bold mb-2">Fintech Analysis Tool</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">A data visualization platform for tracking
+                  investment
+                  performance and financial market trends in real-time.</p>
+              </div>
             </div>
           </div>
-          <div class="p-6 bg-white shadow-lg rounded-xl">
-            <h3 class="font-semibold text-lg">Work</h3>
-            <ul class="mt-4 space-y-4">
-              <li>
-                <img src="./img/eeb.png" alt="" class="h-10">
-                <p class="font-semibold">Euro Exim Bank</p>
-                <p class="text-sm text-gray-500">Trade Executive | 2023 — Present</p>
-              </li>
-              
-              <li>
-                <img src="./img/deomeg.png" alt="" class="h-10">
-                <p class="font-semibold">Deomeg Debt Recovry Ltd</p>
-                <p class="text-sm text-gray-500">Head of Recovery | 2023 — 2023</p>
-              </li>
+        </section>
+      </div>
 
-              <li>
-                <p class="font-semibold">Casa de Banopa</p>
-                <p class="text-sm text-gray-500">Manager | 2020 — 2022</p>
-              </li>
-
-              <li>
-                <img src="./img/adb.png" alt="" class="h-10">
-                <p class="font-semibold">Agricultural Development Bank</p>
-                <p class="text-sm text-gray-500">Recovery Officer | 2018 — 2020</p>
-              </li>
-            </ul>
-            <a href="./docs/AMANKWA ANDREW BRIGHT KWAME.pdf" download>
-              <button class="mt-4 w-full bg-gray-400 py-2 rounded-lg">Download CV &darr;</button>
-            </a>
+      <!-- Sidebar Column -->
+      <aside class="space-y-6">
+        <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md">
+          <h3 class="font-semibold text-lg">Stay up to date</h3>
+          <p class="text-gray-600 dark:text-gray-400">Get notified of updates.</p>
+          <div class="flex mt-2">
+            <input type="email" placeholder="Email"
+              class="flex-1 px-4 py-2 rounded-l-lg border border-gray-300 dark:bg-gray-700 dark:border-gray-600">
+            <button class="px-4 py-2 bg-black text-white rounded-r-lg dark:bg-gray-600">Join</button>
           </div>
         </div>
-      </div>
-</section>
-<section id="skills" class=" py-12">
-  <div class="max-w-6xl mx-auto text-center">
-    <h2 class="text-4xl font-semibold text-black mb-6">My Skills</h2>
 
-    <!-- Swiper Container -->
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://www.svgrepo.com/show/452228/html-5.svg" alt="HTML" class="w-14 h-14 mx-auto"></div>
-        <div class="swiper-slide"><img src="https://www.svgrepo.com/show/452185/css-3.svg" alt="CSS" class="w-14 h-14 mx-auto"></div>
-        <div class="swiper-slide"><img src="https://www.svgrepo.com/show/353925/javascript.svg" alt="JavaScript" class="w-14 h-14 mx-auto"></div>
-        <div class="swiper-slide"><img src="https://www.svgrepo.com/show/452211/github.svg" alt="GitHub" class="w-14 h-14 mx-auto"></div>
-        <div class="swiper-slide"><img src="https://www.svgrepo.com/show/448299/aws.svg" alt="AWS" class="w-14 h-14 mx-auto"></div>
-        <div class="swiper-slide"><img src="https://www.svgrepo.com/show/452210/git.svg" alt="Git" class="w-14 h-14 mx-auto"></div>
-      </div>
+        <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md">
+          <h3 class="font-semibold text-lg">Work Experience</h3>
+          <ul class="mt-4 space-y-4">
+            <li>
+              <p class="font-semibold">Euro Exim Bank</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Trade Executive | 2023 — Present</p>
+            </li>
+            <li>
+              <p class="font-semibold">Deomeg Debt Recovery Ltd</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Head of Recovery | 2023</p>
+            </li>
+            <li>
+              <p class="font-semibold">Casa de Banopa</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Manager | 2020 — 2022</p>
+            </li>
+            <li>
+              <p class="font-semibold">Agricultural Development Bank</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Recovery Officer | 2018 — 2020</p>
+            </li>
+            <li>
+              <p class="font-semibold">PayBox Ventures</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Frontend Developer | 2025</p>
+            </li>
+          </ul>
+          <a href="./docs/AMANKWA ANDREW BRIGHT KWAME.pdf" download>
+            <button
+              class="mt-4 w-full bg-gray-400 hover:bg-gray-500 text-white py-2 rounded-lg transition-colors">Download CV
+              ↓</button>
+          </a>
+        </div>
+      </aside>
     </div>
-  </div>
-</section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 scroll-mt-20">
+      <h2 class="text-4xl font-semibold text-center mb-6">My Skills</h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="https://www.svgrepo.com/show/452228/html-5.svg" alt="HTML"
+              class="w-14 h-14 mx-auto"></div>
+          <div class="swiper-slide"><img src="https://www.svgrepo.com/show/452185/css-3.svg" alt="CSS"
+              class="w-14 h-14 mx-auto"></div>
+          <div class="swiper-slide"><img src="https://www.svgrepo.com/show/353925/javascript.svg" alt="JavaScript"
+              class="w-14 h-14 mx-auto"></div>
+          <div class="swiper-slide"><img src="https://www.svgrepo.com/show/452211/github.svg" alt="GitHub"
+              class="w-14 h-14 mx-auto"></div>
+          <div class="swiper-slide"><img src="https://www.svgrepo.com/show/452210/git.svg" alt="Git"
+              class="w-14 h-14 mx-auto"></div>
+          <div class="swiper-slide"><img src="https://www.svgrepo.com/show/374032/reactjs.svg" alt="React"
+              class="w-14 h-14 mx-auto"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t dark:border-gray-700 py-6 text-center text-sm text-gray-500 dark:text-gray-400">
+      <div class="flex flex-col md:flex-row justify-center space-y-2 md:space-y-0 md:space-x-6">
+        <a href="#home" class="text-sm font-medium hover:text-teal-500 transition-colors">Home</a>
+        <a href="#gallery" class="text-sm font-medium hover:text-teal-500 transition-colors">Gallery</a>
+        <a href="#projects" class="text-sm font-medium hover:text-teal-500 transition-colors">Projects</a>
+        <a href="#skills" class="text-sm font-medium hover:text-teal-500 transition-colors">Skills</a>
+      </div>
+      <p class="mt-4">© 2025 Andrew's Portfolio. All rights reserved.</p>
+    </footer>
+  </main>
 </body>
 
 </html>
